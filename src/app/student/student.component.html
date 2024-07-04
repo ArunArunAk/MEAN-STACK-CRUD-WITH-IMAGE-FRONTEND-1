@@ -1,0 +1,147 @@
+<div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <h5 class="text-center mt-3">Student Details</h5>
+      </div>
+    </div>
+  </div>
+  
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6">
+        <div class="container mt-2">
+          <form [formGroup]="myForm" (ngSubmit)="onSubmit()">
+            <div class="form-group">
+              <label for="name">Name:</label>
+              <input type="text" class="form-control" id="name" formControlName="name">
+            </div>
+            <div class="form-group">
+              <label for="age">Age:</label>
+              <input type="number" class="form-control" id="age" formControlName="age">
+            </div>
+            <div class="form-group">
+              <label for="phone">Phone:</label>
+              <input type="tel" class="form-control" id="phone" formControlName="phone">
+            </div>
+ 
+            <div class="form-group">
+              <label for="image">Select Image:</label>
+              <input type="file" class="form-control" id="image" formControlName="image" (change)="onFileChange($event)">
+            </div>
+
+            <button type="submit" class="btn btn-primary">{{ formStatus }}</button>
+          </form>
+        </div>
+      </div>
+  
+      <div class="col-md-6">
+        <table class="table table-bordered">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Age</th>
+              <th>Phone</th>
+              <th>Image</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let details of studentsdetails">
+              <td>{{ details.name }}</td>
+              <td>{{ details.age }}</td>
+              <td>{{ details.phone }}</td>
+              <td>
+                <img src="{{ details.imagepath }}" alt="Student Image" width="100" height="100" class="img-thumbnail">
+              </td>
+              <td>
+                <button class="btn btn-warning" (click)="getStudentById(details._id)">Edit</button> &nbsp;
+                <button class="btn btn-danger" (click)="deleteStudent(details._id)">Delete</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  
+
+
+
+
+
+  <!-- <div class="form-group">
+                <label for="postimg"> Image</label>
+                <img [src]="imgSrc" class="form-control  img-preview" alt="Image Preview" >
+                <input type="file" class="form-control" accept="image/*" (change)="showpreview($event)" formControlName="postimg"/>
+               
+              </div> -->
+
+<!-- 
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+              <h5 class="text-center mt-3">Student Details</h5>
+        </div>
+    </div>
+  
+</div>
+
+
+<div class="container">
+
+    <div class="row">
+        <div class="col-md-6">
+            <div class="container mt-2">
+                <form [formGroup]="myForm" (ngSubmit)="onSubmit()">
+                  <div class="form-group">
+                    <label for="name">Name:</label>
+                    <input type="text" class="form-control" id="name" formControlName="name">
+                  </div>
+                  <div class="form-group">
+                    <label for="age">Age:</label>
+                    <input type="number" class="form-control" id="age" formControlName="age">
+                  </div>
+                  <div class="form-group">
+                    <label for="phone">Phone:</label>
+                    <input type="tel" class="form-control" id="phone" formControlName="phone">
+                  </div>
+                  <button type="submit" class="btn btn-primary"  >{{formstatus}}</button>
+                </form>
+              </div>
+        </div>
+    
+        <div class="col-md-6">
+                <table class="table table-bordered">
+                    <thead>
+                      <tr>
+                        <th>Name</th>
+                        <th>Age</th>
+                        <th>Phone</th>
+                        <th>Image</th>
+                        <th>Action</th>
+                        
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr *ngFor="let details of studentsdetails"> 
+                        <td>{{details.name}}</td>
+                        <td>{{details.age}}</td>
+                        <td>{{details.phone}}</td>
+                        <td>
+                            <img src="{{details.imagepath}}" alt="Student Image" width="100" height="100" class="img-thumbnail">
+                          </td>
+                        <td>
+                          <button class="btn btn-warning" (click)="getstudentbyid(details._id)">Edit</button> &nbsp;
+                          <button class="btn btn-danger" (click)="deleteStudent(details._id)">Delete</button>
+                        </td>
+                       
+                      </tr>
+                  </table>
+        </div>
+    
+    </div>
+
+</div>
+
+
+ -->
